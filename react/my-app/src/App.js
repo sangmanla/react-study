@@ -1,26 +1,17 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.scss";
+import Menu from "./com/Menu";
+import AppRoutes from "./com/route/AppRoute";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container-fluid">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="App-link">React Study - Sangman</div>
+        <Menu />
       </header>
-      <div>
-        <h1>Hello, React!</h1>
-        <p>Welcome to my first React app.</p>
+      <div className="App-body">
+        <AppRoutes />
       </div>
     </div>
   );

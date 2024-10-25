@@ -1,38 +1,55 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  display: flex;
+  height: 100vh;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #282c34;
   color: white;
+  padding: 20px;
+  width: 200px;
+  overflow-y: auto;
 }
 
 .App-link {
-  color: #61dafb;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  background-color: #282c34;
+  padding: 10px 0;
+  z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav {
+  flex: 1;
+  overflow-y: auto;
+}
+
+nav a {
+  display: block; /* 링크를 블록 요소로 설정하여 개행 처리 */
+  color: #61dafb;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.menu-header {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.submenu {
+  margin-left: 10px;
+}
+
+.App-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
