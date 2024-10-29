@@ -1,14 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../../pages/home/HomeComponent";
-import PropsStateComponent from "../../pages/test/prop_state/PropsStateComponent";
-import ReduxComponent from "../../pages/test/redux/ReduxComponent";
-import UseStateCallbackComponent from "../../pages/test/prop_state/UseStateCallbackComponent";
 import InputEventTestComponent from "../../pages/test/event/OnChagneComponent";
+import PropsStateComponent from "../../pages/test/prop_state/PropsStateComponent";
+import UseStateCallbackComponent from "../../pages/test/prop_state/UseStateCallbackComponent";
+import ReduxComponent from "../../pages/test/redux/ReduxComponent";
 import ToDoApp from "../../pages/TodoList/ToDoApp";
 import UsefulLinks from "../../pages/UsefulLinks/UsefulLinks";
-import PassingPropsToaComponent from "../../pages/test/prop_state/PassingPropsToaComponent";
-import ChildrenExample from "../../pages/test/ChildrenExample";
+import Oct272024Routes, { fetchMenuDataOct272024 } from "./Oct272024Route";
 
 const AppRoutes = () => {
   return (
@@ -20,11 +19,7 @@ const AppRoutes = () => {
       <Route path="/useStateCallback" element={<UseStateCallbackComponent />} />
       <Route path="/inputEvent" element={<InputEventTestComponent />} />
       <Route path="/todoList" element={<ToDoApp />} />
-      <Route
-        path="/passingPropsToaComponent"
-        element={<PassingPropsToaComponent />}
-      />
-      <Route path="/childrenExample" element={<ChildrenExample />} />
+      <Route path="/*" element={<Oct272024Routes />} />
     </Routes>
   );
 };
@@ -33,7 +28,7 @@ export const fetchMenuData = () => {
   // Mimic backend call
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({
+      const baseMenuData = {
         "Useful Links": [{ path: "/usefulLinks", label: "UsefulLinks" }],
         "2024-10-24": [
           { path: "/", label: "Home" },
@@ -45,17 +40,23 @@ export const fetchMenuData = () => {
           { path: "/inputEvent", label: "InputEvent" },
           { path: "/todoList", label: "TodoList" },
         ],
-        "2024-10-27": [
-          {
-            path: "/passingPropsToaComponent",
-            label: "Passing props to a component",
-          },
-          {
-            path: "/childrenExample",
-            label: "Children Example",
-          },
-        ],
-      });
+      };
+
+      // add here
+      const fetchMenuDataFunctions = [fetchMenuDataOct272024];
+
+      Promise.all(fetchMenuDataFunctions.map((fn) => fn())).then(
+        (menuDataArray) => {
+          const mergedMenuData = menuDataArray.reduce(
+            (acc, menuData) => ({
+              ...acc,
+              ...menuData,
+            }),
+            baseMenuData
+          );
+          resolve(mergedMenuData);
+        }
+      );
     }, 500); // Simulate network delay
   });
 };
