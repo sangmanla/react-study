@@ -1,0 +1,25 @@
+import React from "react";
+
+function Recipe({ drinkers }) {
+  return (
+    <ol>
+      <li>Boil {drinkers} cups of warter.</li>
+      <li>
+        Add {drinkers} spons of tea and {0.5 * drinkers} spoons of spice.
+      </li>
+      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
+    </ol>
+  );
+}
+
+export default function Example1() {
+  return (
+    <div>
+      <h1>Chai Recipe</h1>
+      <h2>For two</h2>
+      <Recipe drinkers={2} />
+      <h2>For a gathering</h2>
+      <Recipe drinkers={4} />
+    </div>
+  );
+}
