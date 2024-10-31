@@ -22,6 +22,8 @@ import UlLiTest2 from "../../pages/test/UlLiTest/UlLiTest2";
 import UlLiTest3 from "../../pages/test/UlLiTest/UlLiTest3";
 import UlLiTest4 from "../../pages/test/UlLiTest/UlLiTest4";
 import ToDoApp from "../../pages/TodoList/ToDoApp";
+import UseStateHook from "../../pages/test/20241031/UseStateHook";
+import UseStateHook2 from "../../pages/test/20241031/UseStateHook2";
 
 export const routesConfig = [
   {
@@ -69,6 +71,13 @@ export const routesConfig = [
       { label: "Example 9", component: Example9 },
       { label: "Object Immutable Immer", component: ObjectImmutableWithImmer },
       { label: "Array Immutable Immer", component: ArrayImmutableWithImmer },
+    ],
+  },
+  {
+    date: "2024-10-31",
+    routes: [
+      { label: "UseStateHook", component: UseStateHook },
+      { label: "UseStateHook2", component: UseStateHook2 },
     ],
   },
 ];
