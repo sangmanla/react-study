@@ -24,6 +24,9 @@ import UlLiTest4 from "../../pages/test/UlLiTest/UlLiTest4";
 import ToDoApp from "../../pages/TodoList/ToDoApp";
 import UseStateHook from "../../pages/test/20241031/UseStateHook";
 import UseStateHook2 from "../../pages/test/20241031/UseStateHook2";
+import ReactBatch from "../../pages/test/20241101/ReactBatch";
+import RequestTracker from "../../pages/test/20241101/RequestTracker";
+import FinalState from "../../pages/test/20241101/FinalState";
 
 export const routesConfig = [
   {
@@ -78,6 +81,14 @@ export const routesConfig = [
     routes: [
       { label: "UseStateHook", component: UseStateHook },
       { label: "UseStateHook2", component: UseStateHook2 },
+    ],
+  },
+  {
+    date: "2024-11-01",
+    routes: [
+      { label: "React Batch", component: ReactBatch },
+      { label: "Request Tracker", component: RequestTracker },
+      { label: "Final State", component: FinalState },
     ],
   },
 ];
