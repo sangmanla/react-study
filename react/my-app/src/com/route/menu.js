@@ -27,6 +27,10 @@ import UseStateHook2 from "../../pages/test/20241031/UseStateHook2";
 import ReactBatch from "../../pages/test/20241101/ReactBatch";
 import RequestTracker from "../../pages/test/20241101/RequestTracker";
 import FinalState from "../../pages/test/20241101/FinalState";
+import MovingDot from "../../pages/test/20241101/MovingDot";
+import SpreadWithBrace from "../../pages/test/20241101/SpreadWithBrace";
+import ArrayImmutable from "../../pages/test/20241102/ArrayImmutable";
+import FromByState from "../../pages/test/20241103/FormByState";
 
 export const routesConfig = [
   {
@@ -89,6 +93,16 @@ export const routesConfig = [
       { label: "React Batch", component: ReactBatch },
       { label: "Request Tracker", component: RequestTracker },
       { label: "Final State", component: FinalState },
+      { label: "Moving Dot", component: MovingDot },
+      { label: "Spread With Brace", component: SpreadWithBrace },
     ],
+  },
+  {
+    date: "2024-11-02",
+    routes: [{ label: "Array Immutable", component: ArrayImmutable }],
+  },
+  {
+    date: "2024-11-03",
+    routes: [{ label: "Form By State", component: FromByState }],
   },
 ];
