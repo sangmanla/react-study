@@ -30,7 +30,9 @@ import FinalState from "../../pages/test/20241101/FinalState";
 import MovingDot from "../../pages/test/20241101/MovingDot";
 import SpreadWithBrace from "../../pages/test/20241101/SpreadWithBrace";
 import ArrayImmutable from "../../pages/test/20241102/ArrayImmutable";
-import FromByState from "../../pages/test/20241103/FormByState";
+import FormByState from "../../pages/test/20241103/FormByState";
+import MultipleSelection from "../../pages/test/20241103/MultipleSelection";
+import FilterableList from "../../pages/test/20241103/FilterableList";
 
 export const routesConfig = [
   {
@@ -103,6 +105,10 @@ export const routesConfig = [
   },
   {
     date: "2024-11-03",
-    routes: [{ label: "Form By State", component: FromByState }],
+    routes: [
+      { label: "Form By State", component: FormByState },
+      { label: "Multiple Selection", component: MultipleSelection },
+      { label: "Filterable List", component: FilterableList },
+    ],
   },
 ];
