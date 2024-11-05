@@ -32,7 +32,7 @@ import SpreadWithBrace from "../../pages/test/20241101/SpreadWithBrace";
 import ArrayImmutable from "../../pages/test/20241102/ArrayImmutable";
 import FormByState from "../../pages/test/20241103/FormByState";
 import MultipleSelection from "../../pages/test/20241103/MultipleSelection";
-import FilterableList from "../../pages/test/20241103/FilterableList";
+import FilterableList2 from "../../pages/test/20241103/FilterableList";
 
 export const routesConfig = [
   {
@@ -108,7 +108,7 @@ export const routesConfig = [
     routes: [
       { label: "Form By State", component: FormByState },
       { label: "Multiple Selection", component: MultipleSelection },
-      { label: "Filterable List", component: FilterableList },
+      { label: "Filterable List", component: FilterableList2 },
     ],
   },
 ];
