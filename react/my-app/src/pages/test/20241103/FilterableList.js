@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function FilterableList() {
+export default function FilterableList2() {
   const [query, setQuery] = useState("");
 
   return (
