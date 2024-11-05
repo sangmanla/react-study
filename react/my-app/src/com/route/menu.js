@@ -33,6 +33,7 @@ import ArrayImmutable from "../../pages/test/20241102/ArrayImmutable";
 import FormByState from "../../pages/test/20241103/FormByState";
 import MultipleSelection from "../../pages/test/20241103/MultipleSelection";
 import FilterableList from "../../pages/test/20241103/FilterableList";
+import UserImmerReducer from "../../pages/test/20241104/UserImmerReducer";
 
 export const routesConfig = [
   {
@@ -110,5 +111,9 @@ export const routesConfig = [
       { label: "Multiple Selection", component: MultipleSelection },
       { label: "Filterable List", component: FilterableList },
     ],
+  },
+  {
+    date: "2024-11-04",
+    routes: [{ label: "User Immer Reducer", component: UserImmerReducer }],
   },
 ];

@@ -47,7 +47,7 @@ export default function FormByState() {
   );
 }
 
-async function submitForm(answer) {
+function submitForm(answer) {
   // Pretend it's hitting the network.
   return new Promise((resolve, reject) => {
     setTimeout(() => {
