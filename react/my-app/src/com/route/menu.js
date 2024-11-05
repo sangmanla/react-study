@@ -33,6 +33,7 @@ import ArrayImmutable from "../../pages/test/20241102/ArrayImmutable";
 import FormByState from "../../pages/test/20241103/FormByState";
 import MultipleSelection from "../../pages/test/20241103/MultipleSelection";
 import FilterableList2 from "../../pages/test/20241103/FilterableList";
+import Context from "../../pages/test/20241105/Context";
 
 export const routesConfig = [
   {
@@ -110,5 +111,9 @@ export const routesConfig = [
       { label: "Multiple Selection", component: MultipleSelection },
       { label: "Filterable List", component: FilterableList2 },
     ],
+  },
+  {
+    date: "2024-11-05",
+    routes: [{ label: "Context", component: Context }],
   },
 ];
