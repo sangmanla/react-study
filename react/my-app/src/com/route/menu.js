@@ -36,6 +36,11 @@ import FilterableList from "../../pages/test/20241103/FilterableList";
 import UserImmerReducer from "../../pages/test/20241104/UserImmerReducer";
 import Context from "../../pages/test/20241105/Context";
 import Context2 from "../../pages/test/20241105/Context2";
+import UseRefTest from "../../pages/test/20241106/UseRefTest";
+import UseRefTest2 from "../../pages/test/20241106/UseRefTest2";
+import UseRefTest3 from "../../pages/test/20241106/UseRefTest3";
+import UseRefTest4 from "../../pages/test/20241106/UseRefTest4";
+import UseRefTest5 from "../../pages/test/20241106/UseRefTest5";
 
 export const routesConfig = [
   {
@@ -123,6 +128,16 @@ export const routesConfig = [
     routes: [
       { label: "Context", component: Context },
       { label: "Context2", component: Context2 },
+    ],
+  },
+  {
+    date: "2024-11-06",
+    routes: [
+      { label: "UseRef Test", component: UseRefTest },
+      { label: "UseRef Test2", component: UseRefTest2 },
+      { label: "UseRef Test3", component: UseRefTest3 },
+      { label: "UseRef Test4", component: UseRefTest4 },
+      { label: "UseRef Test5", component: UseRefTest5 },
     ],
   },
 ];
