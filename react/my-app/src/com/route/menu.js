@@ -36,6 +36,7 @@ import FilterableList from "../../pages/test/20241103/FilterableList";
 import UserImmerReducer from "../../pages/test/20241104/UserImmerReducer";
 import Context from "../../pages/test/20241105/Context";
 import Context2 from "../../pages/test/20241105/Context2";
+import TaskApp from "../../pages/test/20241105/ContextAndReducer/TaskApp";
 
 export const routesConfig = [
   {
@@ -123,6 +124,7 @@ export const routesConfig = [
     routes: [
       { label: "Context", component: Context },
       { label: "Context2", component: Context2 },
+      { label: "Task App", component: TaskApp },
     ],
   },
 ];
