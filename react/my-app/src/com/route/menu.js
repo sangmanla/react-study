@@ -41,6 +41,7 @@ import UseRefTest2 from "../../pages/test/20241106/UseRefTest2";
 import UseRefTest3 from "../../pages/test/20241106/UseRefTest3";
 import UseRefTest4 from "../../pages/test/20241106/UseRefTest4";
 import UseRefTest5 from "../../pages/test/20241106/UseRefTest5";
+import TaskApp from "../../pages/test/20241105/ContextAndReducer/TaskApp";
 
 export const routesConfig = [
   {
@@ -128,6 +129,7 @@ export const routesConfig = [
     routes: [
       { label: "Context", component: Context },
       { label: "Context2", component: Context2 },
+      { label: "Task App", component: TaskApp },
     ],
   },
   {
