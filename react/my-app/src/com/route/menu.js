@@ -35,6 +35,7 @@ import MultipleSelection from "../../pages/test/20241103/MultipleSelection";
 import FilterableList from "../../pages/test/20241103/FilterableList";
 import UserImmerReducer from "../../pages/test/20241104/UserImmerReducer";
 import Context from "../../pages/test/20241105/Context";
+import Context2 from "../../pages/test/20241105/Context2";
 
 export const routesConfig = [
   {
@@ -119,6 +120,9 @@ export const routesConfig = [
   },
   {
     date: "2024-11-05",
-    routes: [{ label: "Context", component: Context }],
+    routes: [
+      { label: "Context", component: Context },
+      { label: "Context2", component: Context2 },
+    ],
   },
 ];

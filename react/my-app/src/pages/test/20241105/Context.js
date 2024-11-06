@@ -1,23 +1,23 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
-const LevelContext = createContext(1);
+const LevelContext = createContext(0);
 
 export default function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
+      <Heading>Title</Heading>
       <Section>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
+        <Heading>Heading</Heading>
+        <Heading>Heading</Heading>
+        <Heading>Heading</Heading>
         <Section>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
+          <Heading>Sub-heading</Heading>
           <Section>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-heading</Heading>
           </Section>
         </Section>
       </Section>
@@ -26,10 +26,16 @@ export default function Page() {
 }
 
 function Section({ children }) {
-  return <section className="section">{children}</section>;
+  const level = useContext(LevelContext);
+  return (
+    <section className="section">
+      <LevelContext.Provider value={level + 1}>{children}</LevelContext.Provider>
+    </section>
+  );
 }
 
-function Heading({ level, children }) {
+function Heading({ children }) {
+  const level = useContext(LevelContext);
   switch (level) {
     case 1:
       return <h1>{children}</h1>;
