@@ -42,6 +42,9 @@ import UseRefTest3 from "../../pages/test/20241106/UseRefTest3";
 import UseRefTest4 from "../../pages/test/20241106/UseRefTest4";
 import UseRefTest5 from "../../pages/test/20241106/UseRefTest5";
 import TaskApp from "../../pages/test/20241105/ContextAndReducer/TaskApp";
+import Counter from "../../pages/test/20241204/Counter";
+import Timer from "../../pages/test/20241204/Timer";
+import UseStateUseEffectTest from "../../pages/test/20241204/UseStateUseEffectTest";
 
 export const routesConfig = [
   {
@@ -140,6 +143,14 @@ export const routesConfig = [
       { label: "UseRef Test3", component: UseRefTest3 },
       { label: "UseRef Test4", component: UseRefTest4 },
       { label: "UseRef Test5", component: UseRefTest5 },
+    ],
+  },
+  {
+    date: "2024-12-04",
+    routes: [
+      { label: "Text Counter", component: Counter },
+      { label: "Timer", component: Timer },
+      { label: "Test both", component: UseStateUseEffectTest },
     ],
   },
 ];
