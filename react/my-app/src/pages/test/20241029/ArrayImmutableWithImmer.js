@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useImmer } from "use-immer";
 
 const initialList = [
