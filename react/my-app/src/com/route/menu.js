@@ -45,8 +45,13 @@ import TaskApp from "../../pages/test/20241105/ContextAndReducer/TaskApp";
 import Counter from "../../pages/test/20241204/Counter";
 import Timer from "../../pages/test/20241204/Timer";
 import UseStateUseEffectTest from "../../pages/test/20241204/UseStateUseEffectTest";
+import KeyboardTypingPractice from "../../pages/test/20250101/KeyboardTypingPractice";
 
 export const routesConfig = [
+  {
+    date: "2025-01-01",
+    routes: [{ label: "Typing Practice", component: KeyboardTypingPractice }],
+  },
   {
     date: "2024-10-24",
     routes: [
