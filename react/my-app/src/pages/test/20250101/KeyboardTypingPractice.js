@@ -325,7 +325,6 @@ const getRandomItems = (num, items) => {
 const KeyboardTypingPractice = () => {
   const [currentWord, setCurrentWord] = useState("");
   const [inputValue, setInputValue] = useState("");
-  const [startTime, setStartTime] = useState(null);
   const [wordCount, setWordCount] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   const [wpm, setWpm] = useState(0);
@@ -444,7 +443,6 @@ const KeyboardTypingPractice = () => {
     setWordsList(newWordsList);
     setWordCount(0);
     setCorrectCount(0);
-    setStartTime(null);
     setWpm(0);
     setAccuracy(0);
     setInputValue("");
