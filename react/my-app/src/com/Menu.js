@@ -16,9 +16,11 @@ const Menu = () => {
 
       const currentPath = location.pathname;
       Object.keys(data).find((menu) => {
-        if (data[menu].some((subMenu) => subMenu.path === currentPath)) {
+        const found = data[menu].some((subMenu) => subMenu.path === currentPath);
+        if (found) {
           dispatch(setActiveMenu(menu));
         }
+        return found;
       });
     });
   }, [location.pathname, dispatch]);
@@ -31,11 +33,7 @@ const Menu = () => {
     <nav>
       {Object.keys(menus).map((menu) => (
         <div key={menu}>
-          <div
-            className="menu-header"
-            onClick={() => toggleMenu(menu)}
-            style={{ cursor: "pointer", marginBottom: "10px" }}
-          >
+          <div className="menu-header" onClick={() => toggleMenu(menu)} style={{ cursor: "pointer", marginBottom: "10px" }}>
             {menu}
           </div>
           {activeMenu === menu && (

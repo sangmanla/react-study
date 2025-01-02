@@ -1,4 +1,3 @@
-import { setState } from "react";
 
 function increment(n) {
   return n + 1;
