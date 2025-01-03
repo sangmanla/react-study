@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
+const sentenceCnt = 15;
+const wordCnt = 20;
+
 const words = [
   "the",
   "of",
@@ -207,6 +210,110 @@ const words = [
   "father",
   "keep",
   "tree",
+  "light",
+  "thought",
+  "head",
+  "under",
+  "story",
+  "left",
+  "don’t",
+  "few",
+  "while",
+  "along",
+  "might",
+  "close",
+  "something",
+  "seemed",
+  "next",
+  "hard",
+  "open",
+  "example",
+  "begin",
+  "life",
+  "always",
+  "those",
+  "both",
+  "paper",
+  "together",
+  "group",
+  "often",
+  "important",
+  "until",
+  "children",
+  "side",
+  "feet",
+  "car",
+  "mile",
+  "night",
+  "walk",
+  "white",
+  "sea",
+  "began",
+  "grow",
+  "took",
+  "river",
+  "four",
+  "carry",
+  "state",
+  "once",
+  "book",
+  "hear",
+  "stop",
+  "without",
+  "second",
+  "later",
+  "miss",
+  "idea",
+  "enough",
+  "eat",
+  "face",
+  "watch",
+  "far",
+  "Indian",
+  "real",
+  "almost",
+  "let",
+  "above",
+  "girl",
+  "sometimes",
+  "mountains",
+  "cut",
+  "young",
+  "talk",
+  "soon",
+  "list",
+  "song",
+  "being",
+  "leave",
+  "family",
+  "it's",
+  "body",
+  "music",
+  "color",
+  "stand",
+  "sun",
+  "questions",
+  "fish",
+  "area",
+  "mark",
+  "dog",
+  "horse",
+  "birds",
+  "problem",
+  "complete",
+  "room",
+  "knew",
+  "since",
+  "ever",
+  "piece",
+  "told",
+  "usually",
+  "friends",
+  "easy",
+  "heard",
+  "order",
+  "red",
+  "door",
 ];
 
 const sentences = [
@@ -310,6 +417,56 @@ const sentences = [
   "While the cat's away, the mice will play.",
   "You can't have your cake and eat it too.",
   "You can't make an omelette without breaking a few eggs.",
+  "A friend in need is a friend indeed.",
+  "A house divided against itself cannot stand.",
+  "All is fair in love and war.",
+  "An ounce of prevention is worth a pound of cure.",
+  "Bite off more than you can chew.",
+  "Charity begins at home.",
+  "Don't judge a man until you’ve walked a mile in his shoes.",
+  "Every rose has its thorn.",
+  "Fools rush in where angels fear to tread.",
+  "Great minds think alike.",
+  "Half a loaf is better than none.",
+  "Happiness is not a destination, it’s a journey.",
+  "Honesty is the first chapter in the book of wisdom.",
+  "Hope for the best, prepare for the worst.",
+  "If wishes were horses, beggars would ride.",
+  "It is better to light a single candle than to curse the darkness.",
+  "It is the calm and silent water that drowns a man.",
+  "It's no use locking the stable door after the horse has bolted.",
+  "Knowledge is of no value unless you put it into practice.",
+  "Learn to walk before you run.",
+  "Life is what you make it.",
+  "Little strokes fell great oaks.",
+  "Many hands make light work.",
+  "Misery loves company.",
+  "Money can't buy happiness.",
+  "Necessity is the plea for every infringement of human freedom.",
+  "No man is an island.",
+  "Old habits die hard.",
+  "One good turn deserves another.",
+  "People who live in glass houses shouldn’t throw stones.",
+  "Slow and steady wins the race.",
+  "Success is a journey, not a destination.",
+  "The best things in life are free.",
+  "The darkest hour is just before the dawn.",
+  "The devil is in the details.",
+  "The more the merrier.",
+  "The proof of the pudding is in the eating.",
+  "There are two sides to every coin.",
+  "There is no honor among thieves.",
+  "Time heals all wounds.",
+  "To err is human, to forgive is divine.",
+  "United we stand, divided we fall.",
+  "What doesn't kill you makes you stronger.",
+  "When the going gets tough, the tough get going.",
+  "Winners never quit, and quitters never win.",
+  "You can’t have it both ways.",
+  "You can’t teach an old dog new tricks.",
+  "You get what you pay for.",
+  "Your guess is as good as mine.",
+  "Your reputation precedes you.",
 ];
 
 const getRandomItems = (num, items) => {
@@ -334,6 +491,8 @@ const KeyboardTypingPractice = () => {
   const [wordStartTime, setWordStartTime] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(true); // 소리내기 체크박스 상태 추가
   const [mode, setMode] = useState("word"); // 모드 상태 추가
+  const [charTimes, setCharTimes] = useState({}); // 각 글자의 누적 시간을 저장할 상태 추가
+  const [charCounts, setCharCounts] = useState({}); // 각 글자의 입력 횟수를 저장할 상태 추가
   const inputRef = useRef(null);
   const restartButtonRef = useRef(null);
 
@@ -345,18 +504,18 @@ const KeyboardTypingPractice = () => {
 
   useEffect(() => {
     setCurrentWord(wordsList[wordCount]);
-    const totalAccuracy = wordResults.reduce((acc, result) => acc + parseFloat(result.accuracy), 0) / 20;
+    const totalAccuracy = wordResults.reduce((acc, result) => acc + parseFloat(result.accuracy), 0) / wordsList.length;
     setAccuracy(totalAccuracy.toFixed(2));
-    if (wordCount < 20) {
+    if (wordCount < wordsList.length) {
       inputRef.current.focus();
     }
   }, [wordCount, wordsList, wordResults]);
 
   useEffect(() => {
-    if (wordCount === 20 && restartButtonRef.current) {
+    if (wordCount === wordsList.length && restartButtonRef.current) {
       restartButtonRef.current.focus(); // 단어가 끝나면 Restart 버튼에 포커스
     }
-  }, [wordCount]);
+  }, [wordCount, wordsList.length]);
 
   const speakWord = (word) => {
     const utterance = new SpeechSynthesisUtterance(word);
@@ -371,7 +530,7 @@ const KeyboardTypingPractice = () => {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && inputValue.trim() !== "") {
       const currentTime = new Date();
       const timeDiffMs = currentTime - wordStartTime; // in milliseconds
       const timeDiff = timeDiffMs / 1000 / 60; // in minutes
@@ -381,6 +540,20 @@ const KeyboardTypingPractice = () => {
 
       setWordResults([...wordResults, { word: currentWord, input: inputValue, wpm: grossWpm, accuracy: wordAccuracy, time: timeDiffMs }]);
 
+      // 각 글자의 누적 시간을 계산하여 업데이트
+      const newCharTimes = { ...charTimes };
+      const newCharCounts = { ...charCounts };
+      for (const char of inputValue) {
+        if (!newCharTimes[char]) {
+          newCharTimes[char] = 0;
+          newCharCounts[char] = 0;
+        }
+        newCharTimes[char] += timeDiffMs / inputValue.length;
+        newCharCounts[char] += 1;
+      }
+      setCharTimes(newCharTimes);
+      setCharCounts(newCharCounts);
+
       if (isCorrect) {
         setCorrectCount(correctCount + 1);
       }
@@ -388,8 +561,8 @@ const KeyboardTypingPractice = () => {
       setInputValue("");
       setWordStartTime(null);
 
-      if (wordCount + 1 === 20) {
-        const totalWpm = wordResults.reduce((acc, result) => acc + parseFloat(result.wpm), 0) / 20;
+      if (wordCount + 1 === wordsList.length) {
+        const totalWpm = wordResults.reduce((acc, result) => acc + parseFloat(result.wpm), 0) / wordsList.length;
         setWpm(totalWpm.toFixed(2));
       }
     }
@@ -439,7 +612,8 @@ const KeyboardTypingPractice = () => {
   }
 
   const handleRestart = (newMode = mode) => {
-    const newWordsList = newMode === "word" ? getRandomItems(20, words) : getRandomItems(20, sentences);
+    const numItems = newMode === "word" ? wordCnt : sentenceCnt; // 단어일 때는 20문제, 문장일 때는 15문제
+    const newWordsList = newMode === "word" ? getRandomItems(numItems, words) : getRandomItems(numItems, sentences);
     setWordsList(newWordsList);
     setWordCount(0);
     setCorrectCount(0);
@@ -459,10 +633,19 @@ const KeyboardTypingPractice = () => {
     handleRestart(newMode);
   };
 
+  const getLongestCharTimes = () => {
+    const avgCharTimes = Object.keys(charTimes).map((char) => ({
+      char,
+      avgTime: charTimes[char] / charCounts[char],
+    }));
+    avgCharTimes.sort((a, b) => b.avgTime - a.avgTime);
+    return avgCharTimes.slice(0, 3);
+  };
+
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h1>Typing Practice</h1>
-      <label style={{ cursor: "pointer", fontSize: "20px", marginRight: "30px" }}>
+      <label style={{ cursor: "pointer", fontSize: "20px", marginRight: "50px" }}>
         <input
           type="checkbox"
           checked={isSpeaking}
@@ -475,26 +658,33 @@ const KeyboardTypingPractice = () => {
         <input type="radio" value="word" checked={mode === "word"} onChange={handleModeChange} style={{ cursor: "pointer" }} />
         Word
       </label>
-      <label style={{ cursor: "pointer", fontSize: "20px" }}>
+      <label style={{ cursor: "pointer", fontSize: "20px", marginLeft: "10px", marginBottom: "50px" }}>
         <input type="radio" value="sentence" checked={mode === "sentence"} onChange={handleModeChange} style={{ cursor: "pointer" }} />
         Sentence
       </label>
-      {wordCount < 20 ? (
+      {wordCount < wordsList.length ? (
         <div>
           <p style={{ fontSize: "20px" }}>
-            Type the {mode} ({wordCount + 1}/20)
             <br />
             <br />
-            <strong style={{ fontSize: "20px", marginLeft: "3px" }}>{currentWord}</strong>
+            Type the {mode} ({wordCount + 1}/{wordsList.length})
+            <br />
+            <br />
           </p>
-          <input
-            type="text"
-            value={inputValue}
-            onChange={handleChange}
-            onKeyPress={handleKeyPress}
-            ref={inputRef}
-            style={{ height: "40px", width: "500px", fontSize: "20px" }} // 높이, 너비, 글자 크기 조정
-          />
+          <div>
+            <strong style={{ fontSize: "20px", marginLeft: "3px" }}>{currentWord}</strong>
+            <br />
+            <br />
+
+            <input
+              type="text"
+              value={inputValue}
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+              ref={inputRef}
+              style={{ height: "40px", width: "500px", fontSize: "20px" }} // 높이, 너비, 글자 크기 조정
+            />
+          </div>
           {wordResults.length > 0 && (
             <div>
               <p>
@@ -522,6 +712,14 @@ const KeyboardTypingPractice = () => {
           </p>
           <p>
             Average Accuracy: <strong>{accuracy}%</strong>
+          </p>
+          <p>
+            Longest Average Time Characters:
+            {getLongestCharTimes().map(({ char, avgTime }) => (
+              <p key={char}>
+                <strong> {char} </strong> with <strong>{(avgTime / 1000).toFixed(2)} seconds</strong>
+              </p>
+            ))}
           </p>
           <button onClick={() => handleRestart()} ref={restartButtonRef}>
             Restart

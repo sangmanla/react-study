@@ -1,4 +1,5 @@
 import Home from "../../pages/home/HomeComponent";
+import ArrayImmutableWithImmer from "../../pages/test/20241029/ArrayImmutableWithImmer";
 import Example1 from "../../pages/test/20241029/Example1";
 import Example2 from "../../pages/test/20241029/Example2";
 import Example3 from "../../pages/test/20241029/Example3";
@@ -8,8 +9,32 @@ import Example6 from "../../pages/test/20241029/Example6";
 import Example7 from "../../pages/test/20241029/Example7";
 import Example8 from "../../pages/test/20241029/Example8";
 import Example9 from "../../pages/test/20241029/Example9";
-import ArrayImmutableWithImmer from "../../pages/test/20241029/ArrayImmutableWithImmer";
 import ObjectImmutableWithImmer from "../../pages/test/20241029/ObjectImmutableWithImmer";
+import UseStateHook from "../../pages/test/20241031/UseStateHook";
+import UseStateHook2 from "../../pages/test/20241031/UseStateHook2";
+import FinalState from "../../pages/test/20241101/FinalState";
+import MovingDot from "../../pages/test/20241101/MovingDot";
+import ReactBatch from "../../pages/test/20241101/ReactBatch";
+import RequestTracker from "../../pages/test/20241101/RequestTracker";
+import SpreadWithBrace from "../../pages/test/20241101/SpreadWithBrace";
+import ArrayImmutable from "../../pages/test/20241102/ArrayImmutable";
+import FilterableList from "../../pages/test/20241103/FilterableList";
+import FormByState from "../../pages/test/20241103/FormByState";
+import MultipleSelection from "../../pages/test/20241103/MultipleSelection";
+import UserImmerReducer from "../../pages/test/20241104/UserImmerReducer";
+import Context from "../../pages/test/20241105/Context";
+import Context2 from "../../pages/test/20241105/Context2";
+import TaskApp from "../../pages/test/20241105/ContextAndReducer/TaskApp";
+import UseRefTest from "../../pages/test/20241106/UseRefTest";
+import UseRefTest2 from "../../pages/test/20241106/UseRefTest2";
+import UseRefTest3 from "../../pages/test/20241106/UseRefTest3";
+import UseRefTest4 from "../../pages/test/20241106/UseRefTest4";
+import UseRefTest5 from "../../pages/test/20241106/UseRefTest5";
+import Counter from "../../pages/test/20241204/Counter";
+import Timer from "../../pages/test/20241204/Timer";
+import UseStateUseEffectTest from "../../pages/test/20241204/UseStateUseEffectTest";
+import { ElementaryMath } from "../../pages/test/202501/ElementaryMath";
+import KeyboardTypingPractice from "../../pages/test/202501/KeyboardTypingPractice";
 import ChildrenExample from "../../pages/test/ChildrenExample";
 import InputEventTestComponent from "../../pages/test/event/OnChagneComponent";
 import PassingPropsToaComponent from "../../pages/test/prop_state/PassingPropsToaComponent";
@@ -22,35 +47,14 @@ import UlLiTest2 from "../../pages/test/UlLiTest/UlLiTest2";
 import UlLiTest3 from "../../pages/test/UlLiTest/UlLiTest3";
 import UlLiTest4 from "../../pages/test/UlLiTest/UlLiTest4";
 import ToDoApp from "../../pages/TodoList/ToDoApp";
-import UseStateHook from "../../pages/test/20241031/UseStateHook";
-import UseStateHook2 from "../../pages/test/20241031/UseStateHook2";
-import ReactBatch from "../../pages/test/20241101/ReactBatch";
-import RequestTracker from "../../pages/test/20241101/RequestTracker";
-import FinalState from "../../pages/test/20241101/FinalState";
-import MovingDot from "../../pages/test/20241101/MovingDot";
-import SpreadWithBrace from "../../pages/test/20241101/SpreadWithBrace";
-import ArrayImmutable from "../../pages/test/20241102/ArrayImmutable";
-import FormByState from "../../pages/test/20241103/FormByState";
-import MultipleSelection from "../../pages/test/20241103/MultipleSelection";
-import FilterableList from "../../pages/test/20241103/FilterableList";
-import UserImmerReducer from "../../pages/test/20241104/UserImmerReducer";
-import Context from "../../pages/test/20241105/Context";
-import Context2 from "../../pages/test/20241105/Context2";
-import UseRefTest from "../../pages/test/20241106/UseRefTest";
-import UseRefTest2 from "../../pages/test/20241106/UseRefTest2";
-import UseRefTest3 from "../../pages/test/20241106/UseRefTest3";
-import UseRefTest4 from "../../pages/test/20241106/UseRefTest4";
-import UseRefTest5 from "../../pages/test/20241106/UseRefTest5";
-import TaskApp from "../../pages/test/20241105/ContextAndReducer/TaskApp";
-import Counter from "../../pages/test/20241204/Counter";
-import Timer from "../../pages/test/20241204/Timer";
-import UseStateUseEffectTest from "../../pages/test/20241204/UseStateUseEffectTest";
-import KeyboardTypingPractice from "../../pages/test/20250101/KeyboardTypingPractice";
 
 export const routesConfig = [
   {
-    date: "2025-01-01",
-    routes: [{ label: "Typing Practice", component: KeyboardTypingPractice }],
+    date: "2025-01",
+    routes: [
+      { label: "Typing Practice", component: KeyboardTypingPractice },
+      { label: "Elementary Math", component: ElementaryMath },
+    ],
   },
   {
     date: "2024-10-24",
