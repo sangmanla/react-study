@@ -58,10 +58,14 @@ export const ElementaryMath = () => {
         const quotient = Math.floor(q.num1 / q.num2);
         const remainder = q.num1 % q.num2;
         correctAnswer = `${quotient} R ${remainder}`;
-      } else {
-        correctAnswer = eval(`${q.num1} ${q.operator === "Addition" ? "+" : q.operator === "Subtraction" ? "-" : q.operator === "Multiplication" ? "*" : "/"} ${q.num2}`);
+      } else if (q.operator === "Addition") {
+        correctAnswer = q.num1 + q.num2;
+      } else if (q.operator === "Subtraction") {
+        correctAnswer = q.num1 - q.num2;
+      } else if (q.operator === "Multiplication") {
+        correctAnswer = q.num1 * q.num2;
       }
-      return correctAnswer == answers[index] ? "Correct" : "Incorrect";
+      return correctAnswer === answers[index] ? "Correct" : "Incorrect";
     });
     setResults(newResults);
   };
