@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const sentenceCnt = 15;
+const sentenceCnt = 5;
 const wordCnt = 20;
 
 const words = [
@@ -612,7 +612,7 @@ const KeyboardTypingPractice = () => {
   }
 
   const handleRestart = (newMode = mode) => {
-    const numItems = newMode === "word" ? wordCnt : sentenceCnt; // 단어일 때는 20문제, 문장일 때는 15문제
+    const numItems = newMode === "word" ? wordCnt : sentenceCnt; // 단어일 때는 20문제, 문장일 때는 5문제
     const newWordsList = newMode === "word" ? getRandomItems(numItems, words) : getRandomItems(numItems, sentences);
     setWordsList(newWordsList);
     setWordCount(0);
