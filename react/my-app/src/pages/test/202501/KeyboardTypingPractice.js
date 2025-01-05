@@ -216,7 +216,7 @@ const words = [
   "under",
   "story",
   "left",
-  "don’t",
+  "don't",
   "few",
   "while",
   "along",
@@ -423,12 +423,12 @@ const sentences = [
   "An ounce of prevention is worth a pound of cure.",
   "Bite off more than you can chew.",
   "Charity begins at home.",
-  "Don't judge a man until you’ve walked a mile in his shoes.",
+  "Don't judge a man until you've walked a mile in his shoes.",
   "Every rose has its thorn.",
   "Fools rush in where angels fear to tread.",
   "Great minds think alike.",
   "Half a loaf is better than none.",
-  "Happiness is not a destination, it’s a journey.",
+  "Happiness is not a destination, it's a journey.",
   "Honesty is the first chapter in the book of wisdom.",
   "Hope for the best, prepare for the worst.",
   "If wishes were horses, beggars would ride.",
@@ -446,7 +446,7 @@ const sentences = [
   "No man is an island.",
   "Old habits die hard.",
   "One good turn deserves another.",
-  "People who live in glass houses shouldn’t throw stones.",
+  "People who live in glass houses shouldn't throw stones.",
   "Slow and steady wins the race.",
   "Success is a journey, not a destination.",
   "The best things in life are free.",
@@ -462,8 +462,8 @@ const sentences = [
   "What doesn't kill you makes you stronger.",
   "When the going gets tough, the tough get going.",
   "Winners never quit, and quitters never win.",
-  "You can’t have it both ways.",
-  "You can’t teach an old dog new tricks.",
+  "You can't have it both ways.",
+  "You can't teach an old dog new tricks.",
   "You get what you pay for.",
   "Your guess is as good as mine.",
   "Your reputation precedes you.",
@@ -556,10 +556,17 @@ const KeyboardTypingPractice = () => {
 
       if (isCorrect) {
         setCorrectCount(correctCount + 1);
+        setWordCount(wordCount + 1);
+        setInputValue("");
+        setWordStartTime(null);
+      } else if (mode === "word") {
+        setWordCount(wordCount + 1);
+        setInputValue("");
+        setWordStartTime(null);
+      } else {
+        setInputValue("");
+        setWordStartTime(null);
       }
-      setWordCount(wordCount + 1);
-      setInputValue("");
-      setWordStartTime(null);
 
       if (wordCount + 1 === wordsList.length) {
         const totalWpm = wordResults.reduce((acc, result) => acc + parseFloat(result.wpm), 0) / wordsList.length;
