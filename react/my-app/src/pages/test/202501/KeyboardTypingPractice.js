@@ -556,23 +556,20 @@ const KeyboardTypingPractice = () => {
 
       if (isCorrect) {
         setCorrectCount(correctCount + 1);
-        setWordCount(wordCount + 1);
-        setInputValue("");
-        setWordStartTime(null);
-      } else if (mode === "word") {
-        setWordCount(wordCount + 1);
-        setInputValue("");
-        setWordStartTime(null);
-      } else {
-        setInputValue("");
-        setWordStartTime(null);
       }
+      setWordCount(wordCount + 1);
+      setInputValue("");
+      setWordStartTime(null);
 
       if (wordCount + 1 === wordsList.length) {
         const totalWpm = wordResults.reduce((acc, result) => acc + parseFloat(result.wpm), 0) / wordsList.length;
         setWpm(totalWpm.toFixed(2));
       }
     }
+  };
+
+  const handlePaste = (e) => {
+    e.preventDefault();
   };
 
   function calculateWordAccuracy(inputValue, currentWord) {
@@ -688,6 +685,7 @@ const KeyboardTypingPractice = () => {
               value={inputValue}
               onChange={handleChange}
               onKeyPress={handleKeyPress}
+              onPaste={handlePaste}
               ref={inputRef}
               style={{ height: "40px", width: "500px", fontSize: "20px" }} // 높이, 너비, 글자 크기 조정
             />

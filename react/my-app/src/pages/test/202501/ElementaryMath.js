@@ -41,13 +41,18 @@ export const ElementaryMath = () => {
 
   const handleAnswerChange = (index, value, isRemainder = false) => {
     const newAnswers = [...answers];
-    if (isRemainder) {
-      const [quotient] = newAnswers[index].split(" R ");
-      newAnswers[index] = `${quotient || ""} R ${value}`;
+    if (operator === "Division") {
+      if (isRemainder) {
+        const [quotient] = newAnswers[index].split(" R ");
+        newAnswers[index] = `${quotient || ""} R ${value}`;
+      } else {
+        const [, remainder] = newAnswers[index].split(" R ");
+        newAnswers[index] = `${value} R ${remainder || ""}`;
+      }
     } else {
-      const [, remainder] = newAnswers[index].split(" R ");
-      newAnswers[index] = `${value} R ${remainder || ""}`;
+      newAnswers[index] = value;
     }
+    console.log("newAnswers", newAnswers);
     setAnswers(newAnswers);
   };
 
@@ -65,7 +70,8 @@ export const ElementaryMath = () => {
       } else if (q.operator === "Multiplication") {
         correctAnswer = q.num1 * q.num2;
       }
-      return correctAnswer === answers[index] ? "Correct" : "Incorrect";
+      console.log("correctAnswer", correctAnswer, "answers[index]", answers[index]);
+      return "" + correctAnswer === answers[index] ? "Correct" : "Incorrect";
     });
     setResults(newResults);
   };
