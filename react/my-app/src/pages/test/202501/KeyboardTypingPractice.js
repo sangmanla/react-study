@@ -538,7 +538,8 @@ const KeyboardTypingPractice = () => {
       const isCorrect = inputValue.trim() === currentWord;
       const wordAccuracy = isCorrect ? 100 : calculateWordAccuracy(inputValue, currentWord);
 
-      setWordResults([...wordResults, { word: currentWord, input: inputValue, wpm: grossWpm, accuracy: wordAccuracy, time: timeDiffMs }]);
+      const newWordResult = [...wordResults, { word: currentWord, input: inputValue, wpm: grossWpm, accuracy: wordAccuracy, time: timeDiffMs }];
+      setWordResults(newWordResult);
 
       // 각 글자의 누적 시간을 계산하여 업데이트
       const newCharTimes = { ...charTimes };
@@ -562,7 +563,8 @@ const KeyboardTypingPractice = () => {
       setWordStartTime(null);
 
       if (wordCount + 1 === wordsList.length) {
-        const totalWpm = wordResults.reduce((acc, result) => acc + parseFloat(result.wpm), 0) / wordsList.length;
+        console.log(newWordResult);
+        const totalWpm = newWordResult.reduce((acc, result) => acc + parseFloat(result.wpm), 0) / wordsList.length;
         setWpm(totalWpm.toFixed(2));
       }
     }
